@@ -21,7 +21,8 @@ namespace ProyectoFinal.DAL
 
 
         //Creacion de metodo
-        public bool PruebaConectar(string strComando){
+        /* Metodo (INSERT, DELETE, UPDATE) */
+        public bool ejecutarComandoSinRetornoDatos(string strComando){
             //Test para probar la conexion
             try {
                 
@@ -40,5 +41,7 @@ namespace ProyectoFinal.DAL
                 return false;
             }
         }
+
+        /* select ( retorno datos ) */
     }
 }

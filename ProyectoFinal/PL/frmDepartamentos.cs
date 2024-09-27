@@ -14,8 +14,11 @@ namespace ProyectoFinal.PL
 {
     public partial class frmDepartamentos : Form
     {
+        DepartamentosDAL oDepartamentosDAL;
+
         public frmDepartamentos()
         {
+            oDepartamentosDAL = new DepartamentosDAL(); //Instanciando el objeto
             InitializeComponent();
         }
 
@@ -23,8 +26,8 @@ namespace ProyectoFinal.PL
         {
             //Evento al hacer click en 'Agregar'
             RecuperarInformacion();
-            conexionDAL conexion = new conexionDAL();
-            MessageBox.Show("Conectado ... " + conexion.PruebaConectar("Insert into departamentos (departamento) values ('Diseño')"));
+            MessageBox.Show("Conectado ... ");
+            oDepartamentosDAL.Agregar();
         }
 
         //Metodo,

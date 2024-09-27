@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using System.Data;
+using ProyectoFinal.BLL;
+
+namespace ProyectoFinal.DAL
+{
+    internal class DepartamentosDAL
+    {
+        //Creando propiedad
+        conexionDAL conexion = new conexionDAL();
+
+        //Constructor
+        public DepartamentosDAL() {
+
+            conexion = new conexionDAL();
+        }
+
+        public bool Agregar()
+        {
+            return conexion.ejecutarComandoSinRetornoDatos("Insert into departamentos (departamento) values ('Diseño')");
+        }
+    }
+}
