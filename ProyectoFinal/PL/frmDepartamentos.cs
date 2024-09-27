@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoFinal.BLL;
+using ProyectoFinal.DAL;
 
 namespace ProyectoFinal.PL
 {
@@ -22,6 +23,8 @@ namespace ProyectoFinal.PL
         {
             //Evento al hacer click en 'Agregar'
             RecuperarInformacion();
+            conexionDAL conexion = new conexionDAL();
+            MessageBox.Show("Conectado ... " + conexion.PruebaConectar());
         }
 
         //Metodo,
