@@ -24,7 +24,7 @@ namespace ProyectoFinal.PL
             //Evento al hacer click en 'Agregar'
             RecuperarInformacion();
             conexionDAL conexion = new conexionDAL();
-            MessageBox.Show("Conectado ... " + conexion.PruebaConectar());
+            MessageBox.Show("Conectado ... " + conexion.PruebaConectar("Insert into departamentos (departamento) values ('Diseño')"));
         }
 
         //Metodo,

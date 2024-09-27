@@ -21,13 +21,13 @@ namespace ProyectoFinal.DAL
 
 
         //Creacion de metodo
-        public bool PruebaConectar(){
+        public bool PruebaConectar(string strComando){
             //Test para probar la conexion
             try {
                 
                 MySqlCommand Comando = new MySqlCommand();
 
-                Comando.CommandText = "SELECT * FROM empleados";
+                Comando.CommandText = strComando;
                 Comando.Connection = this.EstablecerConexion();
                 Conexion.Open();
                 Comando.ExecuteNonQuery(); //
