@@ -20,9 +20,9 @@ namespace ProyectoFinal.DAL
             conexion = new conexionDAL();
         }
 
-        public bool Agregar()
+        public bool Agregar(DepartamentoBLL oDepartamentosBLL)
         {
-            return conexion.ejecutarComandoSinRetornoDatos("Insert into departamentos (departamento) values ('Diseño')");
+            return conexion.ejecutarComandoSinRetornoDatos("Insert into departamentos (departamento) values ('"+oDepartamentosBLL.Departamento +"')");
         }
     }
 }

@@ -25,25 +25,23 @@ namespace ProyectoFinal.PL
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             //Evento al hacer click en 'Agregar'
-            RecuperarInformacion();
             MessageBox.Show("Conectado ... ");
-            oDepartamentosDAL.Agregar();
+            oDepartamentosDAL.Agregar(RecuperarInformacion());
         }
 
-        //Metodo,
-        private void RecuperarInformacion()
+        //Metodo que devuelve un objeto
+        private DepartamentoBLL RecuperarInformacion()
         {
             //Crear una instancia utilizando clase
-            DepartamentoBLL oDepartamento = new DepartamentoBLL();
+            DepartamentoBLL oDepartamentoBLL = new DepartamentoBLL();
+
             int ID = 0; int.TryParse(txtID.Text, out ID);
 
-            oDepartamento.ID = ID;
+            oDepartamentoBLL.ID = ID;
 
-            oDepartamento.Departamento = txtNombreDepartamento.Text;
+            oDepartamentoBLL.Departamento = txtNombreDepartamento.Text;
 
-            //Imprimiendo los datos recibidos
-            MessageBox.Show(oDepartamento.ID.ToString());
-            MessageBox.Show(oDepartamento.Departamento);
+            return oDepartamentoBLL;
 
         }
     }
