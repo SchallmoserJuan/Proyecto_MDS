@@ -28,7 +28,17 @@ namespace ProyectoFinal.DAL
         //Metodo para borrar
         public int Eliminar(DepartamentoBLL oDepartamentosBLL)
         {
-            conexion.ejecutarComandoSinRetornoDatos("DELETE FROM Departamentos WHERE ID ="+oDepartamentosBLL.ID);
+            conexion.ejecutarComandoSinRetornoDatos("DELETE FROM departamentos WHERE ID ="+oDepartamentosBLL.ID);
+
+            return 1;
+        }
+
+        //Metodo para modificar
+        public int Modificar(DepartamentoBLL oDepartamentosBLL)
+        {
+            conexion.ejecutarComandoSinRetornoDatos("UPDATE departamentos " +
+                "SET departamento = '"+oDepartamentosBLL.Departamento +"'" +
+                " WHERE ID =" + oDepartamentosBLL.ID);
 
             return 1;
         }

@@ -62,5 +62,12 @@ namespace ProyectoFinal.PL
             oDepartamentosDAL.Eliminar(RecuperarInformacion());
             dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0];
         }
+
+        //Evento para modificar
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            oDepartamentosDAL.Modificar(RecuperarInformacion());
+            dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0]; //Actualizar la tabla
+        }
     }
 }
