@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.txtNombreDepartamento = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -56,12 +56,12 @@
             this.txtID.Size = new System.Drawing.Size(100, 20);
             this.txtID.TabIndex = 1;
             // 
-            // txtNombreDepartamento
+            // txtNombre
             // 
-            this.txtNombreDepartamento.Location = new System.Drawing.Point(156, 43);
-            this.txtNombreDepartamento.Name = "txtNombreDepartamento";
-            this.txtNombreDepartamento.Size = new System.Drawing.Size(225, 20);
-            this.txtNombreDepartamento.TabIndex = 2;
+            this.txtNombre.Location = new System.Drawing.Point(156, 43);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(225, 20);
+            this.txtNombre.TabIndex = 2;
             // 
             // label2
             // 
@@ -116,6 +116,7 @@
             this.dgvDepartamentos.Name = "dgvDepartamentos";
             this.dgvDepartamentos.Size = new System.Drawing.Size(346, 222);
             this.dgvDepartamentos.TabIndex = 8;
+            this.dgvDepartamentos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Seleccionar);
             // 
             // frmDepartamentos
             // 
@@ -128,7 +129,7 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtNombreDepartamento);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label1);
             this.Name = "frmDepartamentos";
@@ -143,7 +144,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.TextBox txtNombreDepartamento;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
