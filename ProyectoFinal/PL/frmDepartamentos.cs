@@ -18,6 +18,7 @@ namespace ProyectoFinal.PL
 
         public frmDepartamentos()
         {
+            //Utiliza la clase DAL Departamentos -> Pasa objeto que tiene infor de la GUI
             oDepartamentosDAL = new DepartamentosDAL(); //Instanciando el objeto
             InitializeComponent();
         }

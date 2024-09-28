@@ -43,5 +43,25 @@ namespace ProyectoFinal.DAL
         }
 
         /* select ( retorno datos ) */
+        public DataSet EjecutarSentencia(MySqlCommand mysqlComando)
+        {
+            DataSet DS = new DataSet();
+            MySqlDataAdapter Adaptador = new MySqlDataAdapter();
+
+            try {
+                MySqlCommand Comando = new MySqlCommand();
+                Comando = mysqlComando;
+                Comando.Connection = EstablecerConexion();
+                Adaptador.SelectCommand = Comando;
+                Conexion.Open();
+                Adaptador.Fill(DS);
+                Conexion.Close();
+                return DS;
+            }
+            catch {
+                return DS;
+            }
+        }
+
     }
 }
