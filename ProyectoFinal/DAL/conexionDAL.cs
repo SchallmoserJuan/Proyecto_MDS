@@ -42,6 +42,28 @@ namespace ProyectoFinal.DAL
             }
         }
 
+        //Sobrecarga
+        public bool ejecutarComandoSinRetornoDatos(MySqlCommand MYSQLComando)
+        {
+            //Test para probar la conexion
+            try
+            {
+
+                MySqlCommand Comando = MYSQLComando;
+                Comando.Connection = this.EstablecerConexion();
+                Conexion.Open();
+                Comando.ExecuteNonQuery(); //
+                Conexion.Close();
+
+                return true;
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         /* select ( retorno datos ) */
         public DataSet EjecutarSentencia(MySqlCommand mysqlComando)
         {

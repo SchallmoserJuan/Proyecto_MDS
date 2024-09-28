@@ -23,13 +23,16 @@ namespace ProyectoFinal.PL
             oDepartamentosDAL = new DepartamentosDAL(); //Instanciando el objeto
             InitializeComponent();
             LlenarGrid();
+            LimpiarEntradas();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Conectando...");
             //Evento al hacer click en 'Agregar'
             oDepartamentosDAL.Agregar(RecuperarInformacion());
             LlenarGrid();
+            LimpiarEntradas();
         }
 
         //Metodo que devuelve un objeto
@@ -54,6 +57,11 @@ namespace ProyectoFinal.PL
 
             txtID.Text = dgvDepartamentos.Rows[indice].Cells[0].Value.ToString();
             txtNombre.Text = dgvDepartamentos.Rows[indice].Cells[1].Value.ToString();
+
+            btnAgregar.Enabled = false;
+            btnBorrar.Enabled = true;
+            btnModificar.Enabled = true;
+            btnCancelar.Enabled = true;
         }
 
         //Evento para borrar
@@ -61,6 +69,7 @@ namespace ProyectoFinal.PL
         {
             oDepartamentosDAL.Eliminar(RecuperarInformacion());
             LlenarGrid();
+            LimpiarEntradas();
         }
 
         //Evento para modificar
@@ -68,6 +77,7 @@ namespace ProyectoFinal.PL
         {
             oDepartamentosDAL.Modificar(RecuperarInformacion());
             LlenarGrid();
+            LimpiarEntradas();
         }
 
         //Metodo
@@ -75,6 +85,24 @@ namespace ProyectoFinal.PL
         {
             dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0]; //Actualizar la tabla
 
+        }
+
+        public void LimpiarEntradas()
+        {
+            txtID.Text = "";
+            txtNombre.Text = "";
+
+            btnAgregar.Enabled = true;
+            btnBorrar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnCancelar.Enabled = false;
+
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarEntradas();
         }
     }
 }
