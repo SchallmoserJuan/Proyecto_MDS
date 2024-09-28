@@ -55,5 +55,12 @@ namespace ProyectoFinal.PL
             txtID.Text = dgvDepartamentos.Rows[indice].Cells[0].Value.ToString();
             txtNombre.Text = dgvDepartamentos.Rows[indice].Cells[1].Value.ToString();
         }
+
+        //Evento para borrar
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            oDepartamentosDAL.Eliminar(RecuperarInformacion());
+            dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0];
+        }
     }
 }

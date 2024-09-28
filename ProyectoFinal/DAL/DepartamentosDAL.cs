@@ -25,6 +25,14 @@ namespace ProyectoFinal.DAL
             return conexion.ejecutarComandoSinRetornoDatos("Insert into departamentos (departamento) values ('"+oDepartamentosBLL.Departamento +"')");
         }
 
+        //Metodo para borrar
+        public int Eliminar(DepartamentoBLL oDepartamentosBLL)
+        {
+            conexion.ejecutarComandoSinRetornoDatos("DELETE FROM Departamentos WHERE ID ="+oDepartamentosBLL.ID);
+
+            return 1;
+        }
+
         //Metodo
         public DataSet MostrarDepartamentos()
         {
