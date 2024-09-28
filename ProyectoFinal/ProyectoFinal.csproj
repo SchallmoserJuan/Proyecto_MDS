@@ -139,6 +139,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -154,6 +155,26 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\7538727_building_department_police_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8396413_id_card_identity_name_identification_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8725775_edit_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8725956_file_alt_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8726195_save_floppy_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8726214_search_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9027339_error_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

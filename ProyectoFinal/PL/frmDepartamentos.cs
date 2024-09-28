@@ -22,14 +22,14 @@ namespace ProyectoFinal.PL
             //Utiliza la clase DAL Departamentos -> Pasa objeto que tiene infor de la GUI
             oDepartamentosDAL = new DepartamentosDAL(); //Instanciando el objeto
             InitializeComponent();
-            dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0];
+            LlenarGrid();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             //Evento al hacer click en 'Agregar'
-            MessageBox.Show("Conectado ... ");
             oDepartamentosDAL.Agregar(RecuperarInformacion());
+            LlenarGrid();
         }
 
         //Metodo que devuelve un objeto
@@ -60,14 +60,21 @@ namespace ProyectoFinal.PL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             oDepartamentosDAL.Eliminar(RecuperarInformacion());
-            dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0];
+            LlenarGrid();
         }
 
         //Evento para modificar
         private void btnModificar_Click(object sender, EventArgs e)
         {
             oDepartamentosDAL.Modificar(RecuperarInformacion());
+            LlenarGrid();
+        }
+
+        //Metodo
+        public void LlenarGrid()
+        {
             dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0]; //Actualizar la tabla
+
         }
     }
 }
