@@ -24,5 +24,12 @@ namespace ProyectoFinal.DAL
         {
             return conexion.ejecutarComandoSinRetornoDatos("Insert into departamentos (departamento) values ('"+oDepartamentosBLL.Departamento +"')");
         }
+
+        //Metodo
+        public DataSet MostrarDepartamentos()
+        {
+            MySqlCommand sentencia = new MySqlCommand("SELECT * FROM departamentos");
+            return conexion.EjecutarSentencia(sentencia);
+        }
     }
 }

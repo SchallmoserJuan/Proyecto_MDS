@@ -16,11 +16,13 @@ namespace ProyectoFinal.PL
     {
         DepartamentosDAL oDepartamentosDAL;
 
+        //Constructor que se ejecuta apenas se inicia la GUI
         public frmDepartamentos()
         {
             //Utiliza la clase DAL Departamentos -> Pasa objeto que tiene infor de la GUI
             oDepartamentosDAL = new DepartamentosDAL(); //Instanciando el objeto
             InitializeComponent();
+            dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0];
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
