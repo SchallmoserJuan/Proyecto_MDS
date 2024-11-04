@@ -102,6 +102,7 @@
     <Compile Include="BLL\EmpleadosBLL.cs" />
     <Compile Include="DAL\conexionDAL.cs" />
     <Compile Include="DAL\DepartamentosDAL.cs" />
+    <Compile Include="DAL\EmpleadosDAL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

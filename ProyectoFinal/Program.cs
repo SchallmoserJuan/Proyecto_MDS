@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProyectoFinal.PL; // Usando capa de Proyect Layer
+using ProyectoFinal.PL;
 
 namespace ProyectoFinal
 {
@@ -17,7 +17,7 @@ namespace ProyectoFinal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDepartamentos());
+            Application.Run(new Form1());
         }
     }
 }

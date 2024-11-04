@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinal.PL;
 
 namespace ProyectoFinal
 {
@@ -15,6 +16,28 @@ namespace ProyectoFinal
         public Form1()
         {
             InitializeComponent();
+        }
+
+        // boton para abrir el formulario de departamentos
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmDepartamentos formularioDepartamentos = new frmDepartamentos();
+            formularioDepartamentos.Show();
+            this.Hide();
+        }
+
+        // boton para abrir el formulario de empleados
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            frmEmpleados formularioEmpleados = new frmEmpleados();
+            formularioEmpleados.Show();
+            this.Hide();
+        }
+
+        // boton para cerrar la aplicacion
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

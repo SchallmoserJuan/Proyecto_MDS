@@ -12,59 +12,70 @@ using ProyectoFinal.DAL;
 
 namespace ProyectoFinal.PL
 {
+    /// <summary>
+    /// Formulario para la gestión de departamentos (CRUD operations)
+    /// </summary>
     public partial class frmDepartamentos : Form
     {
-        DepartamentosDAL oDepartamentosDAL;
+        // Objeto para acceso a datos de departamentos
+        private readonly DepartamentosDAL oDepartamentosDAL;
 
-        //Constructor que se ejecuta apenas se inicia la GUI
+
+        // Constructor del formulario. Inicializa componentes y carga datos iniciales
         public frmDepartamentos()
         {
-            //Utiliza la clase DAL Departamentos -> Pasa objeto que tiene infor de la GUI
-            oDepartamentosDAL = new DepartamentosDAL(); //Instanciando el objeto
+            oDepartamentosDAL = new DepartamentosDAL();
             InitializeComponent();
             LlenarGrid();
             LimpiarEntradas();
         }
 
+        // Operaciones CRUD
+
+
+        // Maneja el evento de agregar un nuevo departamento
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Conectando...");
-            //Evento al hacer click en 'Agregar'
             oDepartamentosDAL.Agregar(RecuperarInformacion());
             LlenarGrid();
             LimpiarEntradas();
         }
 
-        //Metodo que devuelve un objeto
+
+        /// Recupera la información ingresada en el formulario
+        // Objeto DepartamentoBLL con la información del departamento
         private DepartamentoBLL RecuperarInformacion()
         {
-            //Crear una instancia utilizando clase
-            DepartamentoBLL oDepartamentoBLL = new DepartamentoBLL();
+            var oDepartamentoBLL = new DepartamentoBLL();
 
-            int ID = 0; int.TryParse(txtID.Text, out ID);
-
+            // Intenta convertir el ID si existe
+            int.TryParse(txtID.Text, out int ID);
             oDepartamentoBLL.ID = ID;
-
             oDepartamentoBLL.Departamento = txtNombre.Text;
 
             return oDepartamentoBLL;
-
         }
 
+
+        // Maneja la selección de una fila en el DataGridView
         private void Seleccionar(object sender, DataGridViewCellMouseEventArgs e)
         {
             int indice = e.RowIndex;
+            dgvDepartamentos.ClearSelection();
 
-            txtID.Text = dgvDepartamentos.Rows[indice].Cells[0].Value.ToString();
-            txtNombre.Text = dgvDepartamentos.Rows[indice].Cells[1].Value.ToString();
+            if (indice >= 0)
+            {
+                // Cargar datos en los controles
+                txtID.Text = dgvDepartamentos.Rows[indice].Cells[0].Value.ToString();
+                txtNombre.Text = dgvDepartamentos.Rows[indice].Cells[1].Value.ToString();
 
-            btnAgregar.Enabled = false;
-            btnBorrar.Enabled = true;
-            btnModificar.Enabled = true;
-            btnCancelar.Enabled = true;
+                // Actualizar estado de los botones
+                ActualizarEstadoBotones(false, true, true, true);
+            }
         }
 
-        //Evento para borrar
+
+        // Elimina el departamento seleccionado
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             oDepartamentosDAL.Eliminar(RecuperarInformacion());
@@ -72,7 +83,8 @@ namespace ProyectoFinal.PL
             LimpiarEntradas();
         }
 
-        //Evento para modificar
+
+        // Modifica el departamento seleccionado
         private void btnModificar_Click(object sender, EventArgs e)
         {
             oDepartamentosDAL.Modificar(RecuperarInformacion());
@@ -80,29 +92,61 @@ namespace ProyectoFinal.PL
             LimpiarEntradas();
         }
 
-        //Metodo
+        // Métodos de utilidad
+
+
+        // Actualiza el DataGridView con los datos de departamentos
         public void LlenarGrid()
         {
-            dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0]; //Actualizar la tabla
+            dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0];
 
+            // Configurar encabezados
+            dgvDepartamentos.Columns[0].HeaderText = "ID";
+            dgvDepartamentos.Columns[1].HeaderText = "Departamento";
         }
 
+
+        // Limpia los controles del formulario
         public void LimpiarEntradas()
         {
-            txtID.Text = "";
-            txtNombre.Text = "";
-
-            btnAgregar.Enabled = true;
-            btnBorrar.Enabled = false;
-            btnModificar.Enabled = false;
-            btnCancelar.Enabled = false;
-
-
+            txtID.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            ActualizarEstadoBotones(true, false, false, false);
         }
 
+
+        // Actualiza el estado de habilitación de los botones
+        private void ActualizarEstadoBotones(bool agregar, bool borrar, bool modificar, bool cancelar)
+        {
+            btnAgregar.Enabled = agregar;
+            btnBorrar.Enabled = borrar;
+            btnModificar.Enabled = modificar;
+            btnCancelar.Enabled = cancelar;
+        }
+
+        // Eventos de navegación
+
+
+        // Cancela la operación actual y limpia el formulario
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarEntradas();
+        }
+
+
+        // Vuelve al formulario principal
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
+        }
+
+
+        // Cierra la aplicación
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

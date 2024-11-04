@@ -22,15 +22,8 @@ namespace ProyectoFinal.DAL
 
         public bool Agregar(DepartamentoBLL oDepartamentosBLL)
         {
-            //utilizando un parametro
-            MySqlCommand MYSQLComando = new MySqlCommand("INSERT INTO departamentos VALUES(@departamento)");
-            ////validando que sea un varchar y igualando el valor de BLL
-            MYSQLComando.Parameters.Add("@departamento", MySqlDbType.VarChar).Value=oDepartamentosBLL.Departamento;
-            return conexion.ejecutarComandoSinRetornoDatos(MYSQLComando);
-
-
             //Se utiliza para evitar concatenacion y sea siempre un string
-            //return conexion.ejecutarComandoSinRetornoDatos("Insert into departamentos (departamento) values ('" + oDepartamentosBLL.Departamento + "')");
+            return conexion.ejecutarComandoSinRetornoDatos("Insert into departamentos (departamento) values ('" + oDepartamentosBLL.Departamento + "')");
 
 
         }
@@ -41,9 +34,6 @@ namespace ProyectoFinal.DAL
             MySqlCommand MYSQLComando = new MySqlCommand("DELETE FROM departamentos WHERE ID=@ID ");
             MYSQLComando.Parameters.Add("@ID", MySqlDbType.Int32).Value = oDepartamentosBLL.ID;
             return conexion.ejecutarComandoSinRetornoDatos(MYSQLComando);
-            
-            //conexion.ejecutarComandoSinRetornoDatos("DELETE FROM departamentos WHERE ID ="+oDepartamentosBLL.ID);
-            //return 1;
         }
 
         //Metodo para modificar
@@ -54,12 +44,6 @@ namespace ProyectoFinal.DAL
             MYSQLComando.Parameters.Add("@ID", MySqlDbType.Int32).Value = oDepartamentosBLL.ID;
 
             return conexion.ejecutarComandoSinRetornoDatos(MYSQLComando);
-
-            //conexion.ejecutarComandoSinRetornoDatos("UPDATE departamentos " +
-            //    "SET departamento = '"+oDepartamentosBLL.Departamento +"'" +
-            //    " WHERE ID =" + oDepartamentosBLL.ID);
-
-            //return 1;
         }
 
         //Metodo
