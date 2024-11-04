@@ -30,6 +30,37 @@ Este proyecto es una aplicación de escritorio diseñada para gestionar empleado
  * Abre la clase conexionDAL.
  * Cambia los datos de conexión (usuario y contraseña) según tu configuración de MySQL.
 
+Crea la base de datos y tablas: Ejecuta las siguientes sentencias SQL en tu entorno de MySQL para crear la base de datos y las tablas necesarias:
+
+```bash
+CREATE DATABASE dbsistema;
+
+USE dbsistema;
+
+CREATE TABLE `departamentos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `departamento` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `empleadodepartamento` (
+  `idDepartamento` int NOT NULL AUTO_INCREMENT,
+  `idEmpleado` int DEFAULT NULL,
+  PRIMARY KEY (`idDepartamento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `empleados` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `primerapellido` varchar(45) DEFAULT NULL,
+  `segundoapellido` varchar(45) DEFAULT NULL,
+  `correo` varchar(45) DEFAULT NULL,
+  `departamento` varchar(45) DEFAULT NULL,
+  `foto` mediumblob,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
 4. Ejecuta el proyecto.
 
 ## Uso
