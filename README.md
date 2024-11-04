@@ -21,7 +21,7 @@ Este proyecto es una aplicación de escritorio diseñada para gestionar empleado
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu_usuario/nombre_del_repositorio.git
+   git clone https://github.com/SchallmoserJuan/Proyecto_MDS.git
    ```
 
 2. Abre el proyecto en Visual Studio.
