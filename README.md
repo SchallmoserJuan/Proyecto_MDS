@@ -26,7 +26,9 @@ Este proyecto es una aplicación de escritorio diseñada para gestionar empleado
 
 2. Abre el proyecto en Visual Studio.
 
-3. Configura la cadena de conexión a tu base de datos MySQL.
+3. Configura la cadena de conexión a tu base de datos MySQL:
+ * Abre la clase conexionDAL.
+ * Cambia los datos de conexión (usuario y contraseña) según tu configuración de MySQL.
 
 4. Ejecuta el proyecto.
 
