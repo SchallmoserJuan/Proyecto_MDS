@@ -20,7 +20,7 @@ Este proyecto es una aplicación de escritorio diseñada para gestionar empleado
 ## Instalación
 
 1. Clona el repositorio:
-   ```bash
+   ```
    git clone https://github.com/SchallmoserJuan/Proyecto_MDS.git
    ```
 
@@ -32,7 +32,7 @@ Este proyecto es una aplicación de escritorio diseñada para gestionar empleado
 
 Crea la base de datos y tablas: Ejecuta las siguientes sentencias SQL en tu entorno de MySQL para crear la base de datos y las tablas necesarias:
 
-```bash
+```mysql
 CREATE DATABASE dbsistema;
 
 USE dbsistema;
